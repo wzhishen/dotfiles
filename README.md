@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-My dotfiles backup for Cygwin and Windows environment.
+These dotfiles are my `zsh` / `tmux` / `vim` / Cygwin configurations, mostly targeted on x64 Windows platform.
