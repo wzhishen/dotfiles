@@ -1,0 +1,50 @@
+zh
+firefox
+shell firefox
+zv
+ranger-cd
+shell echo %date; read
+open_with q
+echo %d
+shell echo %d
+shell echo %f
+shell echo %f; read
+shell echo %c; read
+shell echo %c, %d; read
+shell echo %d %f, read
+shell python %f; read
+open_with 2 . /2
+shell python %f . .; read
+?
+delete 
+open_with 5
+cd
+cd lab
+echo %d; read
+shell subl %f
+shell echo %d; read
+e
+edit
+open_with 1
+subl
+open_with sublime
+open_withq
+open_with_s
+open_with_subl 
+shell 
+open_withsubl 
+open_with
+open_with 2
+open_with 3
+open_with 
+cd 
+
+draw_possible_programs 
+rename 
+rename llab
+find lab
+find ll
+rename lab
+chmod 755
+chmod 770
+delete
