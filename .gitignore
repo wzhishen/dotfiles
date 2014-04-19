@@ -1,2 +1,4 @@
 *.pyo
 .vim
+.oh-my-fish
+.oh-my-zsh
