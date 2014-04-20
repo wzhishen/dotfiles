@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Zhishen Wen
 # Apr 19, 2014
 
