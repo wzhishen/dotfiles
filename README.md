@@ -25,7 +25,7 @@ There might be a slight problem after installing oh-my-zsh in Cygwin on Windows.
 If you've been getting wierd output upon starting Zsh:
 ```compdef: unknown command or service: git```
 
-Check out the solution [here] (https://github.com/robbyrussell/oh-my-zsh/issues/630) proposed by [**@twilek**] (https://github.com/twilek)
+Check out the solution [here] (https://github.com/robbyrussell/oh-my-zsh/issues/630) proposed by [**@twilek**] (https://github.com/twilek).
 
 ## License
 MIT
