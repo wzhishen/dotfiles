@@ -15,14 +15,10 @@ source ~/.tmuxinator/completion/tmuxinator.zsh
 
 # Aliases
 #
-# Some people use a different file for aliases
+# Use a different file for aliases
 if [ -f "${HOME}/.bash_aliases" ]; then
   source "${HOME}/.bash_aliases"
 fi
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

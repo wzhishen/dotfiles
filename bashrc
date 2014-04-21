@@ -37,7 +37,7 @@
 # set -o ignoreeof
 #
 # Use case-insensitive filename globbing
-# shopt -s nocaseglob
+shopt -s nocaseglob
 #
 # Make bash append rather than overwrite the history on disk
 shopt -s histappend
@@ -79,7 +79,7 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 
 # Aliases
 #
-# Some people use a different file for aliases
+# Use a different file for aliases
 if [ -f "${HOME}/.bash_aliases" ]; then
   source "${HOME}/.bash_aliases"
 fi
@@ -95,9 +95,9 @@ fi
 # Functions
 #
 # Some people use a different file for functions
-# if [ -f "${HOME}/.bash_functions" ]; then
-#   source "${HOME}/.bash_functions"
-# fi
+if [ -f "${HOME}/.bash_functions" ]; then
+  source "${HOME}/.bash_functions"
+fi
 #
 # Some example functions:
 #
