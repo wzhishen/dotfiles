@@ -13,7 +13,7 @@ curl -Ls https://raw.githubusercontent.com/wzhishen/dotfiles/master/tools/instal
 
 #### via wget
 ```
-wget -q -O - https://raw.githubusercontent.com/wzhishen/dotfiles/master/tools/install.sh | sh
+wget -qO- https://raw.githubusercontent.com/wzhishen/dotfiles/master/tools/install.sh | sh
 ```
 
 This will clone and symlink all the files and directories to their proper places.
