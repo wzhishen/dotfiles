@@ -1,4 +1,4 @@
-
+"-----------------------------------------
 "             Vundle configs
 "-----------------------------------------
 
@@ -71,6 +71,5 @@ set lazyredraw
 
 set laststatus=2
 set encoding=utf-8
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
