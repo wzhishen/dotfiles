@@ -33,8 +33,8 @@ ln -sf $dfdir/ranger/rifle.conf $confdir_ranger/rifle.conf
 
 # tmuxinator configs
 mkdir -p $confdir_tmuxinator/completion
-ln -sf $dfdir/tmuxinator/jasonwen.yml $confdir_tmuxinator/jasonwen.yml
-ln -sf $dfdir/tmuxinator/completion/tmuxinator.zsh $confdir_tmuxinator/completion/tmuxinator.zsh
+ln -sf $dfdir/tmux/tmuxinator/jasonwen.yml $confdir_tmuxinator/jasonwen.yml
+ln -sf $dfdir/tmux/tmuxinator/completion/tmuxinator.zsh $confdir_tmuxinator/completion/tmuxinator.zsh
 
 # oh-my-zsh configs
 mkdir -p $confdir_ohmyzsh/themes
