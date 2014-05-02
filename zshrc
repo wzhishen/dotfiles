@@ -76,3 +76,7 @@ export EDITOR='vim'
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Disable CTRL+S from sending XOFF
+stty ixoff -ixon
+

@@ -18,10 +18,16 @@ root: ~/
 # Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
 
+# layout:
+# main-vertical, main-horizontal, even-horizontal, even-vertical, tiled
 windows:
-  - default:
-      layout: tiled
+  - editor:
+      layout: main-vertical
       panes:
         - 
         - vim .
-        - ranger
+  # - explorer:
+  #     layout: main-horizontal
+  #     panes:
+  #       - 
+  #       - ranger

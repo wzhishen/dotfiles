@@ -1,8 +1,4 @@
 # This file contains all aliases.
-#---------------------------------------------------------------------
-# If these are enabled they will be used instead of any instructions
-# they may mask. To override the alias instruction use a \ before, ie
-# \rm will call the real rm not the alias.
 
 # Interactive operation...
 # alias rm='rm -i'
