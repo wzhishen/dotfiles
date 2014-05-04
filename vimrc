@@ -1,15 +1,13 @@
-"-----------------------------------------
-"             Vundle configs
-"-----------------------------------------
+" Vundle
+"----------------------------------------------------------------
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype off
+filetype plugin indent on
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 
 Bundle 'bling/vim-airline'
@@ -19,20 +17,22 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'majutsushi/tagbar'
+Bundle 'yegappan/mru'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
 
-filetype plugin indent on     " required
-
-"-----------------------------------------
-"             My preferences
-"-----------------------------------------
+" My preferences
+"----------------------------------------------------------------
 
 " Automatic reloading of .vimrc
 "autocmd! bufwritepost .vimrc source %
 
 " Display
 set t_Co=256
-color koehler
 syntax on
+color koehler
+set background=dark
 set number
 set ruler
 set showmode
@@ -40,10 +40,10 @@ set showcmd
 set title
 set listchars=eol:¶,nbsp:⋅,tab:>-,trail:~,extends:>,precedes:< "show white spaces
 set cursorline
-hi CursorLine term=bold cterm=bold ctermbg=52    "highlight current line
 set cursorcolumn
-hi Cursorcolumn term=none cterm=none ctermbg=233 "highlight current column
 set colorcolumn=80
+hi CursorLine term=bold cterm=bold ctermbg=52    "highlight current line
+hi Cursorcolumn term=none cterm=none ctermbg=233 "highlight current column
 hi Colorcolumn term=none cterm=none ctermbg=232  "highlight column limit
 
 " Indentation
@@ -70,49 +70,54 @@ set backspace=indent,eol,start
 set autoread
 set nofoldenable
 set ttyfast
-set visualbell           " don't beep
-set noerrorbells         " don't beep
+set visualbell           "don't beep
+set noerrorbells         "don't beep
 set lazyredraw
-set mouse=a              " enable mouse
-set clipboard=unnamed    " better copy/paste
+set mouse=a              "enable mouse
+set clipboard=unnamed    "better copy/paste
 set splitright
 set splitbelow
 
-"-----------------------------------------
-"        Powerline/Airline configs
-"-----------------------------------------
+" Package configurations
+"----------------------------------------------------------------
 
+" Powerline/Airline
 set laststatus=2
 set encoding=utf-8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-"-----------------------------------------
-"           NERD Tree configs
-"-----------------------------------------
-
-"autocmd vimenter * NERDTree
+" NERD Tree
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrows=0
 
-"-----------------------------------------
-"           Syntastic configs
-"-----------------------------------------
-
+" Syntastic
 hi SignColumn ctermbg=233
+let g:tagbar_usearrows = 1
 
-"-----------------------------------------
-"             Key mappings
-"-----------------------------------------
+" Rainbow Parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Indent Guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=52
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=124
+
+" Key mappings
+"----------------------------------------------------------------
 
 let mapleader=","
 
-nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F1> :NERDTreeToggle<CR>
+nnoremap <F2> :TagbarToggle<CR>
 nnoremap <F3> :set hlsearch!<CR>
-nnoremap <F4> :set list!<CR>
+nnoremap <F4> :set list!<CR>:IndentGuidesToggle<CR>
 nnoremap <F5> :SyntasticCheck<CR>:SyntasticToggleMode<CR>
 nnoremap <F6> :setlocal spell! spelllang=en_us<CR>
-set pastetoggle=<F7>
+set pastetoggle=<F10>
 nnoremap <F11> :bp!<CR>
 nnoremap <F12> :bn!<CR>
 
@@ -120,4 +125,4 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-a> GVgg
 nnoremap <C-n> :enew<CR>
 nnoremap <C-q> :q<CR>
-
+nnoremap <leader>t :%s/\s\+$//<CR>:let @/=''<CR> "remove all trailing spaces
