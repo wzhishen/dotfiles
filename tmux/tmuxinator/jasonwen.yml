@@ -22,7 +22,7 @@ root: ~/
 # main-vertical, main-horizontal, even-horizontal, even-vertical, tiled
 windows:
   - editor:
-      layout: main-vertical
+      layout: c193,217x61,0,0[217x9,0,0,0,217x51,0,10,1]
       panes:
         - 
         - vim .

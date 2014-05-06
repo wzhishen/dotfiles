@@ -18,9 +18,10 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'majutsushi/tagbar'
-Bundle 'yegappan/mru'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'kien/ctrlp.vim'
 
 " My preferences
 "----------------------------------------------------------------
@@ -38,13 +39,16 @@ set ruler
 set showmode
 set showcmd
 set title
+set wildmenu
 set listchars=eol:¶,nbsp:⋅,tab:>-,trail:~,extends:>,precedes:< "show white spaces
 set cursorline
 set cursorcolumn
 set colorcolumn=80
-hi CursorLine term=bold cterm=bold ctermbg=52    "highlight current line
+hi LineNr       ctermbg=233 "line number background color
+hi StatusLine   ctermbg=233 "status line background color
+hi CursorLine   term=bold cterm=bold ctermbg=52  "highlight current line
 hi Cursorcolumn term=none cterm=none ctermbg=233 "highlight current column
-hi Colorcolumn term=none cterm=none ctermbg=232  "highlight column limit
+hi Colorcolumn  term=none cterm=none ctermbg=232 "highlight column limit
 
 " Indentation
 set autoindent
@@ -59,6 +63,13 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+set wildignorecase
+set wildignore+=*\\tmp\\*,*\\bin\\*,*\\pkg\\*,*\\AppData\\*
+set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*
+set wildignore+=*~,*.swp,*.zip,*.exe,*.dat,*.lnk,*.pdf
+set wildignore+=*.class,*.jar
+set wildignore+=*.o,*.d,*.so
+set wildignore+=*.pyc
 
 " No backup files
 set nowritebackup
@@ -103,8 +114,11 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Indent Guides
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=52
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=52
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=124
+
+" CtrlP
+let g:ctrlp_follow_symlinks = 1
 
 " Key mappings
 "----------------------------------------------------------------
@@ -117,7 +131,8 @@ nnoremap <F3> :set hlsearch!<CR>
 nnoremap <F4> :set list!<CR>:IndentGuidesToggle<CR>
 nnoremap <F5> :SyntasticCheck<CR>:SyntasticToggleMode<CR>
 nnoremap <F6> :setlocal spell! spelllang=en_us<CR>
-set pastetoggle=<F10>
+set pastetoggle=<F9>
+nnoremap <F10> :bd<CR>
 nnoremap <F11> :bp!<CR>
 nnoremap <F12> :bn!<CR>
 
@@ -125,4 +140,14 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-a> GVgg
 nnoremap <C-n> :enew<CR>
 nnoremap <C-q> :q<CR>
-nnoremap <leader>t :%s/\s\+$//<CR>:let @/=''<CR> "remove all trailing spaces
+nnoremap <leader>t :call RemoveTrailingSpaces()<CR>
+nnoremap <leader>p :CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMRU<CR>
+
+" Functions
+"----------------------------------------------------------------
+
+function! RemoveTrailingSpaces()
+    exec ':%s/\s\+$//'
+endfunction
