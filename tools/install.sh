@@ -8,6 +8,7 @@ confdir_fish=~/.config/fish                   # config path to fish
 confdir_ranger=~/.config/ranger               # config path to ranger
 confdir_tmuxinator=~/.tmuxinator              # config path to tmuxinator
 confdir_ohmyzsh=~/.oh-my-zsh                  # config path to oh-my-zsh
+confdir_vim=~/.vim                            # config path to vim
 
 if [ -d $dfdir ]; then
     echo "Directory $dfdir already exists, skipping."
@@ -39,5 +40,9 @@ ln -sf $dfdir/tmux/tmuxinator/completion/tmuxinator.zsh $confdir_tmuxinator/comp
 # oh-my-zsh configs
 mkdir -p $confdir_ohmyzsh/themes
 ln -sf $dfdir/zsh/themes/jasonwen.zsh-theme $confdir_ohmyzsh/themes/jasonwen.zsh-theme
+
+# vim configs
+#mkdir -p $confdir_vim/colors
+ln -sf $dfdir/vim/colors $confdir_vim/colors
 
 echo "Done."

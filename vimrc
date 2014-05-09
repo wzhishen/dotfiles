@@ -26,13 +26,13 @@ Bundle 'kien/ctrlp.vim'
 " My preferences
 "----------------------------------------------------------------
 
-" Automatic reloading of .vimrc
-"autocmd! bufwritepost .vimrc source %
+" Auto-source .vimrc without breaking Powerline display
+autocmd! bufwritepost .vimrc nested source %
 
 " Display
 set t_Co=256
 syntax on
-color koehler
+colorscheme distinguished
 set background=dark
 set number
 set ruler
@@ -40,15 +40,17 @@ set showmode
 set showcmd
 set title
 set wildmenu
+set fillchars+=vert:. "change split borders
 set listchars=eol:¶,nbsp:⋅,tab:>-,trail:~,extends:>,precedes:< "show white spaces
 set cursorline
 set cursorcolumn
 set colorcolumn=80
-hi LineNr       ctermbg=233 "line number background color
-hi StatusLine   ctermbg=233 "status line background color
-hi CursorLine   term=bold cterm=bold ctermbg=52  "highlight current line
-hi Cursorcolumn term=none cterm=none ctermbg=233 "highlight current column
-hi Colorcolumn  term=none cterm=none ctermbg=232 "highlight column limit
+hi LineNr       ctermbg=233 "line number default background color
+hi StatusLine   ctermbg=233 "status line default background color
+hi CursorLine   term=bold cterm=bold ctermfg=none ctermbg=52  "highlight current line
+hi CursorLineNR term=bold cterm=bold ctermfg=232 ctermbg=148  "highlight current line number
+hi Cursorcolumn term=none cterm=none ctermfg=none ctermbg=233 "highlight current column
+hi Colorcolumn  term=none cterm=none ctermfg=none ctermbg=232 "highlight column limit
 
 " Indentation
 set autoindent
@@ -81,11 +83,11 @@ set backspace=indent,eol,start
 set autoread
 set nofoldenable
 set ttyfast
-set visualbell           "don't beep
-set noerrorbells         "don't beep
+set visualbell        "don't beep
+set noerrorbells      "don't beep
 set lazyredraw
-set mouse=a              "enable mouse
-set clipboard=unnamed    "better copy/paste
+set mouse=a           "enable mouse
+set clipboard=unnamed "better copy/paste
 set splitright
 set splitbelow
 
@@ -95,8 +97,8 @@ set splitbelow
 " Powerline/Airline
 set laststatus=2
 set encoding=utf-8
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
 
 " NERD Tree
 let NERDTreeShowHidden=1
@@ -104,7 +106,7 @@ let g:NERDTreeDirArrows=0
 
 " Syntastic
 hi SignColumn ctermbg=233
-let g:tagbar_usearrows = 1
+let g:tagbar_usearrows=1
 
 " Rainbow Parentheses
 au VimEnter * RainbowParenthesesToggle
@@ -113,12 +115,12 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " Indent Guides
-let g:indent_guides_auto_colors = 0
+let g:indent_guides_auto_colors=0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=52
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=124
 
 " CtrlP
-let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_follow_symlinks=1
 
 " Key mappings
 "----------------------------------------------------------------

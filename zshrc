@@ -79,4 +79,3 @@ export EDITOR='vim'
 
 # Disable CTRL+S from sending XOFF
 stty ixoff -ixon
-
